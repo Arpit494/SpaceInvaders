@@ -19,8 +19,8 @@ BackgroungImg = pygame.image.load("background.png").convert()    # Load image fo
 BulletImg = pygame.image.load("bullet.png")
 
 # Adding Background Music to our Game
-mixer.music.load("background.wav")
-mixer.music.play(-1)
+#mixer.music.load("background.wav")
+#mixer.music.play(-1)
 
 # Coordinate Axis for Bullet 
 Bullet_X = 0
@@ -166,14 +166,13 @@ running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False    
-    #screen.fill((0,0,0))                     # Filling Background with balck color 
+            running = False     
     # Movement of background
-    rel_Y = y % BackgroungImg.get_rect().height
+    rel_Y = y % BackgroungImg.get_rect().height 
     screen.blit(BackgroungImg, (0, rel_Y - BackgroungImg.get_rect().height))
-    if rel_Y < 600:
+    if rel_Y > 0:
         screen.blit(BackgroungImg,(0, rel_Y))
-    y -= 0.2   
+    y += 0.5   
     '''
     t1 = threading.Thread(target=Create_Spaceship, name='t1') 
     t2 = threading.Thread(target=Get_Audio, name='t2')   
